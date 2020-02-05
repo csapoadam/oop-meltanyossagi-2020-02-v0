@@ -8,7 +8,9 @@
 
 #include "MediaOutlets.h"
 
-// csak deklaraciok - definialni is kell oket!
+// Feladat: a MediaOutlets.cpp fajlban valositson meg minden metodust es fuggvenyt, ami kell a main fv fordulasahoz es helyes futasashoz.
+
+// csak deklaraciok - definialni is kell oket a MediaOutlets.cpp file-ban
 bool isMediaOutletANewspaper(MediaOutlet* mo);
 Newspaper* convertMediaOutletToNewspaper(MediaOutlet* mo);
 
@@ -25,8 +27,8 @@ Newspaper* convertMediaOutletToNewspaper(MediaOutlet* mo);
 
 int main()
 {
-	Person host1("Hajdu Hedvig");
-	Person host2("Vak Vendel");
+	Person host1("Hajdu Hedvig"); // Person osztaly mar definialva van a helpers.h file-ban
+	Person host2("Vak Vendel"); // ezert itt nincs teendo
 	Person editor1("Ujsagiro Ubul");
 	Person editor2("Riporter Reka");
 	Person akarki1("Pirinyo Panni");
@@ -35,19 +37,19 @@ int main()
 
 	std::vector<MediaOutlet*> mediaOutlets;
 
-	Newspaper newspaper1("Erdekfeszito Napilap", &editor1, Regularity::DAILY);
+	Newspaper newspaper1("Erdekfeszito Napilap", &editor1, Regularity::DAILY); // Newspaper konstruktorat definialni kell a MediaOutlets.cpp file-ban
 	Newspaper newspaper2("Ritka Havilap", &editor2, Regularity::MONTHLY);
-	TVShow show1("Daily news", &host1);
+	TVShow show1("Daily news", &host1); // TVShow konstruktorat definialni kell a MediaOutlets.cpp file-ban
 	TVShow show2("Daily comedy", &host2);
 
-	newspaper1.publish();
+	newspaper1.publish(); // Newspaper publish() metodusat definialni kell a MediaOutlets.cpp file-ban - ez novel egy szamlalot az osztalyban
 	newspaper1.publish();
 	newspaper2.publish();
-	show1.air();
+	show1.air(); // TVShow air() metodusat definialni kell a MediaOutlets.cpp file-ban - ez novel egy szamlalot az osztalyban
 	show2.air();
 	show2.air();
 
-	newspaper1.subscribe(&akarki1);
+	newspaper1.subscribe(&akarki1); // subscribe() metodust definialni kell a MediaOutlets.cpp file-ban
 	newspaper1.subscribe(&akarki2);
 	newspaper2.subscribe(&akarki3);
 
@@ -57,8 +59,8 @@ int main()
 	mediaOutlets.push_back(&show2);
 
 	for (MediaOutlet* mo : mediaOutlets) {
-		mo->introduce();
-		if (isMediaOutletANewspaper(mo)) {
+		mo->introduce(); // introduce() metodust definialni kell a MediaOutlets.cpp file-ban
+		if (isMediaOutletANewspaper(mo)) { // errol meg a kovetkezo sorrol is gondoskodni kell
 			convertMediaOutletToNewspaper(mo)->printSubscribers();
 		}
 	}
