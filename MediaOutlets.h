@@ -8,7 +8,7 @@ protected:
 	std::string name;
 public:
 	MediaOutlet(std::string name);
-	virtual void introduce() = 0;
+	virtual void introduce() const = 0;
 };
 
 class Newspaper : public MediaOutlet {
@@ -19,9 +19,9 @@ class Newspaper : public MediaOutlet {
 public:
 	Newspaper(std::string name, Person* editor, Regularity r);
 	void publish();
-	void introduce();
+	void introduce() const override;
 	void subscribe(Person* p);
-	void printSubscribers();
+	void printSubscribers() const;
 };
 
 class TVShow : public MediaOutlet {
@@ -30,5 +30,5 @@ class TVShow : public MediaOutlet {
 public:
 	TVShow(std::string name, Person* host);
 	void air();
-	void introduce();
+	void introduce() const override;
 };

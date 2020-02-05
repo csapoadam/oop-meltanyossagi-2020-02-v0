@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 
-#include "MediaOutlets.h";
+#include "MediaOutlets.h"
 #include <string>
 #include <iostream>
 
@@ -16,7 +16,7 @@ Newspaper::Newspaper(std::string name, Person* editor, Regularity r) :
 	howRegular(r),
 	numIssuesPublished(0) {}
 
-void Newspaper::introduce() {
+void Newspaper::introduce() const {
 	std::cout << "Newspaper called " << name << " (editor in chief: " << editorInChief->name;
 	std::cout << ") appears on a " << regularityToString(howRegular) << " basis";
 	std::cout << " and has been published " << numIssuesPublished << " times" << std::endl;
@@ -26,7 +26,7 @@ void Newspaper::publish() { ++numIssuesPublished; }
 
 void Newspaper::subscribe(Person* p) { subscribers.push_back(p); }
 
-void Newspaper::printSubscribers() {
+void Newspaper::printSubscribers() const {
 	std::cout << subscribers.size() << " people subscribed to newspaper called " << name << ":" << std::endl;
 	for (Person* p : subscribers) {
 		std::cout << "  --> " << p->name << std::endl;
@@ -37,7 +37,7 @@ TVShow::TVShow(std::string name, Person* host) : MediaOutlet(name), host(host), 
 
 void TVShow::air() { ++numTimesAired; }
 
-void TVShow::introduce() {
+void TVShow::introduce() const {
 	std::cout << "TV show called " << name << " is hosted by " << host->name;
 	std::cout << " and has aired " << numTimesAired << " times" << std::endl;
 }
